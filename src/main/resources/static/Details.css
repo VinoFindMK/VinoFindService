@@ -12,8 +12,8 @@
     font-family: 'Yellowtail', cursive;
 }
 #map_pos{
-    float: left;
-    margin-left:4%;
+
+    margin-left:36%;
     margin-top:3%;
 }
 #info{
@@ -21,16 +21,20 @@
     margin-top:3%;
     float:left;
     background-color: #27ae60;
-    height: 720px;
-    width: 422px;
+    height: 603px;
+    width: 505px;
     opacity: 0.9;
 }
 #info > h2{
-
+    margin-top: 5px;
     margin-left:20px;
     text-wrap: normal;
     margin-right:20px;
     font-family: 'Arial', sans-serif;
+}
+#info > h2:nth-child(3), #info > h2:nth-child(4) {
+    display: inline-block;
+    margin-right: 20px; /* Add some margin between Rating and Number of Ratings */
 }
 #info >h2:last-child{
     margin-bottom: 30px;
