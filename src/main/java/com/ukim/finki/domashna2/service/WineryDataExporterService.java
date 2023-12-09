@@ -69,10 +69,9 @@ public class WineryDataExporterService implements CommandLineRunner {
                                 detailedResult.userRatingsTotal,
                                 detailedResult.formattedPhoneNumber,
                                 detailedResult.placeId,
-                                getOpeningTime(detailedResult),
-                                getWebsite(detailedResult)
+                                Utility.getOpeningTime(detailedResult),
+                                Utility.getWebsite(detailedResult)
                         );
-
                         if (LocationFilter.shouldIncludeWinery(result)) {
                             wineryService.saveWineryToDB(winery);
                             allWineryData.add(winery);
@@ -83,38 +82,8 @@ public class WineryDataExporterService implements CommandLineRunner {
                 }
             }
             System.out.println("Done");
-
         }else{
             System.out.println("Done (Already full)");
-        }
-    }
-    private String getWebsite(PlaceDetails detailedResult) {
-        if(detailedResult.website == null){
-            return "Unknown";
-        }
-        return String.valueOf(detailedResult.website);
-    }
-    private String getOpeningTime(PlaceDetails detailedResult) {
-        if (detailedResult.openingHours != null && detailedResult.openingHours.periods != null
-                && detailedResult.openingHours.periods.length > 1) {
-                      StringBuilder stringBuilder = new StringBuilder();
-                      String result = "";
-            for(int i=0;i<detailedResult.openingHours.periods.length;i++){
-                stringBuilder.append(String.valueOf(detailedResult.openingHours.periods[i].open.day));
-                stringBuilder.append(" ");
-                stringBuilder.append(String.valueOf(detailedResult.openingHours.periods[i].open.time));
-                stringBuilder.append(" - ");
-                stringBuilder.append(String.valueOf(detailedResult.openingHours.periods[i].close.day));
-                stringBuilder.append(" ");
-                stringBuilder.append(String.valueOf(detailedResult.openingHours.periods[i].close.time));
-                stringBuilder.append("                                   ");
-                result = stringBuilder.toString();
-            }
-            return result;
-        } else  if (detailedResult.openingHours != null && detailedResult.openingHours.openNow) {
-            return "Open 24/7";
-        }else{
-            return "Unknown";
         }
     }
 }

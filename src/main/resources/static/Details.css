@@ -34,7 +34,7 @@
 }
 #info > h2:nth-child(3), #info > h2:nth-child(4) {
     display: inline-block;
-    margin-right: 20px; /* Add some margin between Rating and Number of Ratings */
+    margin-right: 20px;
 }
 #info >h2:last-child{
     margin-bottom: 30px;
