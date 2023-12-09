@@ -22,7 +22,7 @@
 <h2>Number of Ratings: <br> <span th:text="${winery.numRatings}"></span></h2>
 <h2>Contact number: <br> <span th:text="${winery.phoneNum}"></span></h2>
 <h2>Opening Hours: <br> <span th:text="${winery.openingHours}"></span></h2>
-<!--<h2> <span th:text="${winery.openingHours}"></span></h2>-->
+<h2>Website: <br> <a th:href="${winery.webSite}" target="_blank"  th:text="${winery.webSite}"></a></h2>
 </div>
 <div id="map_pos">
     <iframe width="950" height="600" id="map"
