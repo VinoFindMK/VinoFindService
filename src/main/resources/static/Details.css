@@ -18,15 +18,15 @@
 }
 #info{
     margin-left:2%;
-    margin-top:6%;
+    margin-top:3%;
     float:left;
     background-color: #27ae60;
-    height: 500px;
+    height: 720px;
     width: 422px;
     opacity: 0.9;
 }
 #info > h2{
-    margin-bottom: 50px;
+
     margin-left:20px;
     text-wrap: normal;
     margin-right:20px;
