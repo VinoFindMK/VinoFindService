@@ -1,6 +1,10 @@
 package com.ukim.finki.domashna2.service;
 
 import com.google.maps.model.PlaceDetails;
+import com.ukim.finki.domashna2.model.WineryReview;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Utility {
     public static String getWebsite(PlaceDetails detailedResult) {
@@ -31,5 +35,26 @@ public class Utility {
         }else{
             return "Unknown";
         }
+    }
+
+    public static List<WineryReview> getReviews(PlaceDetails detailedResult) {
+        List<WineryReview> reviews = new ArrayList<>();
+
+        if (detailedResult.reviews != null) {
+            for (com.google.maps.model.PlaceDetails.Review googleReview : detailedResult.reviews) {
+                WineryReview review = new WineryReview(
+                        googleReview.authorName,
+                        googleReview.language,
+                        googleReview.profilePhotoUrl,
+                        googleReview.relativeTimeDescription,
+                        googleReview.text,
+                        googleReview.time,
+                        googleReview.rating
+                );
+                reviews.add(review);
+            }
+        }
+
+        return reviews;
     }
 }

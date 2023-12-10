@@ -24,7 +24,22 @@
 <h2>Contact number: <br> <span th:text="${winery.phoneNum}"></span></h2>
 <h2>Opening Hours: <br> <span th:text="${winery.openingHours}"></span></h2>
 <h2>Website: <br> <a th:href="${winery.webSite}" target="_blank"  th:text="${winery.webSite}"></a></h2>
+<!--</div>-->
+
+
+<!--<div id="reviews">-->
+    <h2>Reviews:</h2>
+    <ul th:if="${winery.reviews != null and not #lists.isEmpty(winery.reviews)}">
+        <li th:each="review : ${winery.reviews}">
+            <h2>Author: <span th:text="${review.authorName}"></span></h2>
+            <h2>Rating: <span th:text="${review.rating}"></span></h2>
+            <h2><span th:text="${review.text}"></span></h2>
+        </li>
+    </ul>
+    <h2 th:unless="${winery.reviews != null and not #lists.isEmpty(winery.reviews)}">No reviews</h2>
 </div>
+
+
 <div id="map_pos">
     <iframe width="950" height="600" id="map"
             th:src="@{'https://maps.google.com/maps?q=' + ${winery.location} + '&amp;width=100%25&amp;height=600&amp;hl=en&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'}">

@@ -8,6 +8,7 @@ import com.google.maps.model.PlaceDetails;
 import com.google.maps.model.PlacesSearchResponse;
 import com.google.maps.model.PlacesSearchResult;
 import com.ukim.finki.domashna2.model.WineryInfo;
+import com.ukim.finki.domashna2.model.WineryReview;
 import com.ukim.finki.domashna2.repository.WineryRepository;
 import io.github.cdimascio.dotenv.Dotenv;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Component
@@ -60,6 +62,7 @@ public class WineryDataExporterService implements CommandLineRunner {
                     PlacesSearchResponse response = request.await();
                     for (PlacesSearchResult result : response.results) {
                         PlaceDetails detailedResult = PlacesApi.placeDetails(context, result.placeId).await();
+                        List<WineryReview> reviews = Utility.getReviews(detailedResult);
                         System.out.println("Getting info for: "+ detailedResult.name);
                         WineryInfo winery = new WineryInfo(
                                 detailedResult.name,
@@ -70,7 +73,8 @@ public class WineryDataExporterService implements CommandLineRunner {
                                 detailedResult.formattedPhoneNumber,
                                 detailedResult.placeId,
                                 Utility.getOpeningTime(detailedResult),
-                                Utility.getWebsite(detailedResult)
+                                Utility.getWebsite(detailedResult),
+                                reviews
                         );
                         if (LocationFilter.shouldIncludeWinery(result)) {
                             wineryService.saveWineryToDB(winery);
