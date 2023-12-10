@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "winery", schema = "winery")
+//@Table(name = "winery", schema = "winery")
 public class WineryInfo {
     @Column(unique = true)
     public String name;

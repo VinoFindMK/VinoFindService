@@ -81,9 +81,9 @@ public class WineryDataExporterService implements CommandLineRunner {
                     e.printStackTrace();
                 }
             }
-            System.out.println("Done");
+            System.out.println("Info gathered");
         }else{
-            System.out.println("Done (Already full)");
+            System.out.println("Info has already been gathered");
         }
     }
 }
