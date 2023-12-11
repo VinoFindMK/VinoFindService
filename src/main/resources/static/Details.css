@@ -10,32 +10,69 @@
     height: 60px;
     font-size: 25px;
     font-family: 'Yellowtail', cursive;
+    border-bottom: #000000 solid 3px;
+    margin-bottom: 3%;
 }
-#map_pos{
 
+
+#map_pos{
+    position: fixed;
     margin-left:36%;
-    margin-top:3%;
+    top: 100px;
+    min-height: auto;
+
 }
 #info{
+    border: #000000 solid 3px;
     margin-left:2%;
-    margin-top:3%;
     float:left;
     background-color: #27ae60;
-    height: 603px;
-    width: 505px;
+    min-height: auto;
+    width: 550px;
     opacity: 0.9;
 }
 #info > h2{
-    margin-top: -2px;
+    margin-top: 10px;
     margin-left:20px;
     text-wrap: normal;
     margin-right:20px;
     font-family: 'Arial', sans-serif;
 }
+
 #info > h2:nth-child(3), #info > h2:nth-child(4) {
     display: inline-block;
     margin-right: 20px;
 }
+
 #info >h2:last-child{
     margin-bottom: 30px;
+}
+
+#reviews{
+    border: #000000 solid 3px;
+    margin-left: 2%;
+    margin-top: 3%;
+    margin-right: 2%;
+    float:left;
+    clear: left;
+    background-color: #27ae60;
+    min-height: auto;
+    min-width: auto;
+    opacity: 0.9;
+}
+
+#reviews h2{
+    margin-top: 10px;
+    margin-left: 20px;
+    text-wrap: normal;
+    margin-right:20px;
+    font-family: 'Arial', sans-serif;
+}
+
+#reviews li h2:nth-child(-n+2){
+    display: inline ;
+}
+
+#reviews li h2:nth-child(3){
+    display: block;
 }

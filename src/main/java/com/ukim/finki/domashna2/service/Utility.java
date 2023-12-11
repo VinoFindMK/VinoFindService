@@ -26,7 +26,7 @@ public class Utility {
                 stringBuilder.append(String.valueOf(detailedResult.openingHours.periods[i].close.day));
                 stringBuilder.append(" ");
                 stringBuilder.append(String.valueOf(detailedResult.openingHours.periods[i].close.time));
-                stringBuilder.append("                                   ");
+                stringBuilder.append("");
                 result = stringBuilder.toString();
             }
             return result;
