@@ -10,17 +10,17 @@
 </head>
 <div class="head">
     <div class="head">
-        <a href="Home">Home</a>
-        <a href="Wineries">Wineries</a>
-        <a href="Map">Map</a>
-        <a href="About">About Us</a>
+        <a href="Home" th:text="#{link_home}"></a>
+        <a href="Wineries" th:text="#{link_wineries}"></a>
+        <a href="Map" th:text="#{link_map}"></a>
+        <a href="About" th:text="#{link_about}"></a>
     </div>
 
 </div>
 <body>
     <div class="Body">
         <img src="img/Logo_MConverter_1.webp" alt="The picture could not be loaded">
-        <p id="paragraph">Explore the diverse landscape of Macedonian wine culture, where ancient vineyards meet modern craftsmanship, creating a symphony of flavors unique to our region.</p>
+        <p id="paragraph" th:text="#{home_p}"></p>
     </div>
 </body>
 </html>

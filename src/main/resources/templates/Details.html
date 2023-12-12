@@ -11,10 +11,10 @@
 </head>
 <body>
 <div class="head">
-    <a th:href="@{/Home}">Home</a>
-    <a th:href="@{/Wineries}">Wineries</a>
-    <a th:href="@{/Map}">Map</a>
-    <a th:href="@{/AboutUs}">About Us</a>
+    <a th:href="@{/Home}" th:text="#{link_home}">Home</a>
+    <a th:href="@{/Wineries}" th:text="#{link_wineries}">Wineries</a>
+    <a th:href="@{/Map}" th:text="#{link_map}">Map</a>
+    <a th:href="@{/AboutUs}" th:text="#{link_about}">About Us</a>
 </div>
 <div id="info">
 <h2>Name:<br> <span th:text="${winery.name}"></span></h2>
