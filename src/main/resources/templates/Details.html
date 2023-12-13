@@ -16,6 +16,12 @@
     <a th:href="@{/Map}" th:text="#{link_map}">Map</a>
     <a th:href="@{/AboutUs}" th:text="#{link_about}">About Us</a>
 </div>
+
+<div class="Language" >
+    <a href="?lang=mk" th:text="MK"></a>
+    <a href="?lang=en" th:text="EN"></a>
+</div>
+
 <div id="info">
 <h2> <span th:text="#{details_name}"></span>:<br> <span th:text="${winery.name}"></span></h2>
 <h2> <span th:text="#{details_address}"></span>:<br> <span th:text="${winery.address}"></span></h2>
