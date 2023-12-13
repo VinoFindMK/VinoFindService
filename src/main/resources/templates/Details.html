@@ -11,32 +11,38 @@
 </head>
 <body>
 <div class="head">
-    <a th:href="@{/Home}">Home</a>
-    <a th:href="@{/Wineries}">Wineries</a>
-    <a th:href="@{/Map}">Map</a>
-    <a th:href="@{/AboutUs}">About Us</a>
+    <a th:href="@{/Home}" th:text="#{link_home}">Home</a>
+    <a th:href="@{/Wineries}" th:text="#{link_wineries}">Wineries</a>
+    <a th:href="@{/Map}" th:text="#{link_map}">Map</a>
+    <a th:href="@{/AboutUs}" th:text="#{link_about}">About Us</a>
 </div>
+
+<div class="Language" >
+    <a href="?lang=mk" th:text="MK"></a>
+    <a href="?lang=en" th:text="EN"></a>
+</div>
+
 <div id="info">
-<h2>Name:<br> <span th:text="${winery.name}"></span></h2>
-<h2>Address: <br> <span th:text="${winery.address}"></span></h2>
-<h2>Rating: <br> <span th:text="${winery.rating}"></span></h2>
-<h2>Number of Ratings: <br> <span th:text="${winery.numRatings}"></span></h2>
-<h2>Contact number: <br> <span th:text="${winery.phoneNum}"></span></h2>
-<h2>Opening Hours: <br> <span th:utext="${winery.openingHours}"></span></h2>
-<h2>Website: <br> <a th:href="${winery.webSite}" target="_blank"  th:text="${winery.webSite}"></a></h2>
+<h2> <span th:text="#{details_name}"></span>:<br> <span th:text="${winery.name}"></span></h2>
+<h2> <span th:text="#{details_address}"></span>:<br> <span th:text="${winery.address}"></span></h2>
+<h2> <span th:text="#{details_rating}"></span>:<br> <span th:text="${winery.rating}"></span></h2>
+<h2> <span th:text="#{details_number_ratings}"></span>:<br> <span th:text="${winery.numRatings}"></span></h2>
+<h2> <span th:text="#{details_contact_number}"></span>:<br> <span th:text="${winery.phoneNum}"></span></h2>
+<h2> <span th:text="#{details_opening_hours}"></span>:<br> <span th:text="${winery.openingHours}"></span></h2>
+<h2> <span th:text="#{details_website}"></span>:<br> <a th:href="${winery.webSite}" target="_blank"  th:text="${winery.webSite}"></a></h2>
 </div>
 
 
 <div id="reviews">
-    <h2>Reviews:</h2>
+    <h2 th:text="#{details_reviews}">:</h2>
     <ul th:if="${winery.reviews != null and not #lists.isEmpty(winery.reviews)}">
         <li th:each="review : ${winery.reviews}">
-            <h2>Author: <span th:text="${review.authorName}"></span></h2>
-            <h2>Rating: <span th:text="${review.rating}"></span></h2>
+            <h2><span th:text="#{details_author}"></span>: <span th:text="${review.authorName}"></span></h2>
+            <h2><span th:text="#{details_rating}"></span>: <span th:text="${review.rating}"></span></h2>
             <h2><span th:text="${review.text}"></span></h2>
         </li>
     </ul>
-    <h2 th:unless="${winery.reviews != null and not #lists.isEmpty(winery.reviews)}">No reviews</h2>
+    <h2 th:unless="${winery.reviews != null and not #lists.isEmpty(winery.reviews)}" th:text="#{details_no_reviews}"></h2>
 </div>
 
 

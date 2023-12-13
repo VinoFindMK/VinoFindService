@@ -45,3 +45,18 @@ a:hover{
     color: yellow;
 
 }
+.Language{
+    background-color: darkgreen;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 19px;
+    font-family: 'Yellowtail', cursive;
+}
+
+.Language a{
+    color: white;
+}
+.Language a :active{
+    color: white;
+}
