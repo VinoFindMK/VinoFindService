@@ -70,7 +70,7 @@ public class WineryDataExporterService implements CommandLineRunner {
                                 String.valueOf(detailedResult.geometry.location),
                                 detailedResult.rating,
                                 detailedResult.userRatingsTotal,
-                                detailedResult.formattedPhoneNumber,
+                                Utility.getPhoneNumber(detailedResult),
                                 detailedResult.placeId,
                                 Utility.getOpeningTime(detailedResult),
                                 Utility.getWebsite(detailedResult),

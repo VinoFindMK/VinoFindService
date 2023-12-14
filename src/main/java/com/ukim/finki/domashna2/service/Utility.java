@@ -13,6 +13,12 @@ public class Utility {
         }
         return String.valueOf(detailedResult.website);
     }
+    public static String getPhoneNumber(PlaceDetails detailedResult) {
+        if(detailedResult.formattedPhoneNumber == null){
+            return "Unknown";
+        }
+        return detailedResult.formattedPhoneNumber;
+    }
     public static String getOpeningTime(PlaceDetails detailedResult) {
         if (detailedResult.openingHours != null && detailedResult.openingHours.periods != null
                 && detailedResult.openingHours.periods.length > 1) {
@@ -26,7 +32,7 @@ public class Utility {
                 stringBuilder.append(String.valueOf(detailedResult.openingHours.periods[i].close.day));
                 stringBuilder.append(" ");
                 stringBuilder.append(String.valueOf(detailedResult.openingHours.periods[i].close.time));
-                stringBuilder.append("");
+                stringBuilder.append("<br>");
                 result = stringBuilder.toString();
             }
             return result;
