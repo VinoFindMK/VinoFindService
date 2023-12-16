@@ -18,6 +18,12 @@ public class UserReviewController {
         this.wineryService = wineryService;
     }
 
+    //This method is simply for testing rn...
+    @GetMapping("/{wineryId}")
+    public void getUserReviewsForWinery(){
+        System.out.println(wineryService.getUserReviewsByLanguage("en").toString());
+    }
+
     @GetMapping("/add/{wineryId}")
     public String showReviewForm(@PathVariable Long wineryId, Model model) {
         model.addAttribute("wineryId", wineryId);
