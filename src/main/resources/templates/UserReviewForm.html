@@ -43,6 +43,8 @@
 
 
 <form action="#" method="post" id="reviewForm">
+    <input id="wineryId" name="wineryid" th:value="${wineryId}" hidden>
+
     <label for="name" th:text="#{review.name}"></label>
     <input type="text" id="name" name="name">
 
