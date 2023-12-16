@@ -20,8 +20,9 @@ public class UserReviewController {
 
     //This method is simply for testing rn...
     @GetMapping("/{wineryId}")
-    public void getUserReviewsForWinery(){
-        System.out.println(wineryService.getUserReviewsByLanguage("en").toString());
+    public String getUserReviewsForWinery(@PathVariable("wineryId") Long wineryId){
+        System.out.println(wineryService.getUserReviewsByLanguage(wineryId, "en").toString());
+        return "redirect:/Details/"+wineryId;
     }
 
     @GetMapping("/add/{wineryId}")
@@ -31,7 +32,7 @@ public class UserReviewController {
     }
 
     @PostMapping("/add")
-    public String addReview(@RequestParam("wineryId") Long wineryId,
+    public String addReview(@RequestParam("wineryid") Long wineryId,
                             @RequestParam("name") String name,
                             @RequestParam("rating") int rating,
                             @RequestParam("comment") String comment,
@@ -46,6 +47,6 @@ public class UserReviewController {
 
         wineryService.saveUserReviewToDB(wineryUserReview);
 
-        return "redirect:/Details/{wineryId}";
+        return "redirect:/Details/"+wineryId;
     }
 }

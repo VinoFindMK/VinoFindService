@@ -50,7 +50,7 @@ public class WineryService {
         wineryUserReviewRepository.save(wineryUserReview);
     }
 
-    public List<WineryUserReview> getUserReviewsByLanguage(String language){
-        return wineryUserReviewRepository.getAllByLanguageEquals(language);
+    public List<WineryUserReview> getUserReviewsByLanguage(Long wineryId, String language){
+        return wineryUserReviewRepository.getAllByWineryIdEqualsAndLanguageEquals(wineryId, language);
     }
 }
