@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+    <link rel="icon" type="image/x-icon" href="img/logo.png">
+    <link rel="stylesheet" href="/background.css">
+    <link rel="stylesheet" href="/Details.css">
+
+
+</head>
+<body>
+<div class="head">
+    <a th:href="@{/Home}" th:text="#{link_home}">Home</a>
+    <a th:href="@{/Wineries}" th:text="#{link_wineries}">Wineries</a>
+    <a th:href="@{/Map}" th:text="#{link_map}">Map</a>
+    <a th:href="@{/AboutUs}" th:text="#{link_about}">About Us</a>
+</div>
+
+<div class="Language">
+    <a href="?lang=mk" th:text="MK"></a>
+    <a href="?lang=en" th:text="EN"></a>
+</div>
+
+<div id="info">
+    <h2><span th:text="#{details_name}"></span>:<br> <span th:text="${winery.name}"></span></h2>
+    <h2><span th:text="#{details_address}"></span>:<br> <span th:text="${winery.address}"></span></h2>
+    <h2><span th:text="#{details_rating}"></span>:<br> <span th:text="${winery.rating}"></span></h2>
+    <h2><span th:text="#{details_number_ratings}"></span>:<br> <span th:text="${winery.numRatings}"></span></h2>
+    <h2><span th:text="#{details_contact_number}"></span>:<br> <span th:text="${winery.phoneNum}"></span></h2>
+    <h2><span th:text="#{details_opening_hours}"></span>:<br> <span th:utext="${winery.openingHours}"></span></h2>
+    <h2><span th:text="#{details_website}"></span>:<br> <a th:href="${winery.webSite}" target="_blank"
+                                                           th:text="${winery.webSite}"></a></h2>
+</div>
+
+
+<div id="reviews">
+    <h2 th:text="#{details_reviews}">:</h2>
+    <ul th:if="${winery.reviews != null and not #lists.isEmpty(winery.reviews)}">
+        <li th:each="review : ${winery.reviews}">
+            <h2><span th:text="#{details_author}"></span>: <span th:text="${review.authorName}"></span></h2>
+            <h2><span th:text="#{details_rating}"></span>: <span th:text="${review.rating}"></span></h2>
+            <h2><span th:text="${review.text}"></span></h2>
+        </li>
+    </ul>
+    <h2 th:unless="${winery.reviews != null and not #lists.isEmpty(winery.reviews)}"
+        th:text="#{details_no_reviews}"></h2>
+</div>
+
+
+<div id="map_pos">
+    <iframe width="1050" height="700" id="map"
+            th:src="@{'https://maps.google.com/maps?q=' + ${winery.location} + '&amp;width=100%25&amp;height=600&amp;hl=en&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'}">
+    </iframe>
+</div>
+
+
+</body>
+</html>

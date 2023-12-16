@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+    <link rel="icon" type="image/x-icon" href="img/logo.png">
+    <link rel="stylesheet" href="/background.css">
+    <link rel="stylesheet" href="/Index.css">
+</head>
+<div class="head">
+    <a href="Home" th:text="#{link_home}"></a>
+    <a href="Wineries" th:text="#{link_wineries}"></a>
+    <a href="Map" th:text="#{link_map}"></a>
+    <a href="About" th:text="#{link_about}"></a>
+</div>
+<div class="Language" >
+    <a href="?lang=mk" th:text="MK"></a>
+    <a href="?lang=en" th:text="EN"></a>
+</div>
+<body>
+    <div class="Body">
+        <div style="margin-top: 50px;">
+           <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1dimw8elHq0JkLI65SXvcXxnci0Y6upY&ehbc=2E312F&zoom=20" width="1300px" height="580px"></iframe>
+        </div>
+    </div>
+</body>
+</html>
