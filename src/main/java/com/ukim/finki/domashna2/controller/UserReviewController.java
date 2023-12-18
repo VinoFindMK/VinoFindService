@@ -21,29 +21,28 @@ public class UserReviewController {
     //This method is simply for testing rn...
     @GetMapping("/{wineryId}")
     public String getUserReviewsForWinery(@PathVariable("wineryId") Long wineryId){
-        System.out.println(wineryService.getUserReviewsByLanguage(wineryId, "en").toString());
+        System.out.println(wineryService.getUserReviewsById(wineryId).toString());
         return "redirect:/Details/"+wineryId;
     }
 
     @GetMapping("/add/{wineryId}")
     public String showReviewForm(@PathVariable Long wineryId, Model model) {
         model.addAttribute("wineryId", wineryId);
-        return "UserReviewForm";
+        return "comments";
     }
 
     @PostMapping("/add")
     public String addReview(@RequestParam("wineryid") Long wineryId,
                             @RequestParam("name") String name,
+                            @RequestParam("surname") String surname,
                             @RequestParam("rating") int rating,
-                            @RequestParam("comment") String comment,
-                            @RequestParam("language") String language) {
+                            @RequestParam("comment") String comment) {
 
         WineryUserReview wineryUserReview = new WineryUserReview();
         wineryUserReview.setWineryId(wineryId);
-        wineryUserReview.setName(name);
+        wineryUserReview.setName(name + " " + surname);
         wineryUserReview.setRating(rating);
         wineryUserReview.setText(comment);
-        wineryUserReview.setLanguage(language);
 
         wineryService.saveUserReviewToDB(wineryUserReview);
 

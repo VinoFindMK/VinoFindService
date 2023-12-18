@@ -47,6 +47,24 @@
         th:text="#{details_no_reviews}"></h2>
 </div>
 
+<div class="Comment" id="button">
+    <a th:href="${'/reviews/add/' + winery.getId()}" target="_blank">
+        <button type="button"th:text="#{click_me}"></button>
+    </a>
+</div>
+
+<div id="user_reviews">
+    <h2 th:text="#{details_reviews}">:</h2>
+    <ul th:if="${!user_reviews.isEmpty()}">
+        <li th:each="review : ${user_reviews}">
+            <h2><span th:text="#{details_author}"></span>: <span th:text="${review.getName()}"></span></h2>
+            <h2><span th:text="#{details_rating}"></span>: <span th:text="${review.getRating()}"></span></h2>
+            <h2><span th:text="${review.getText()}"></span></h2>
+        </li>
+    </ul>
+    <h2 th:unless="${user_reviews.isEmpty()}"
+        th:text="#{details_no_reviews}"></h2>
+</div>
 
 <div id="map_pos">
     <iframe width="1050" height="700" id="map"

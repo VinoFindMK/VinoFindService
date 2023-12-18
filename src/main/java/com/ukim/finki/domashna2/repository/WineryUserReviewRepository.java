@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface WineryUserReviewRepository extends JpaRepository<WineryUserReview, Long> {
-    public List<WineryUserReview> getAllByWineryIdEqualsAndLanguageEquals(Long wineryId, String language);
+    public List<WineryUserReview> getAllByWineryIdEquals(Long wineryId);
 }
 

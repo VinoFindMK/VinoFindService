@@ -1,7 +1,6 @@
 package com.ukim.finki.domashna2.service;
 
 import com.ukim.finki.domashna2.model.WineryInfo;
-import com.ukim.finki.domashna2.model.WineryReview;
 import com.ukim.finki.domashna2.model.WineryUserReview;
 import com.ukim.finki.domashna2.repository.WineryRepository;
 import com.ukim.finki.domashna2.repository.WineryUserReviewRepository;
@@ -50,7 +49,7 @@ public class WineryService {
         wineryUserReviewRepository.save(wineryUserReview);
     }
 
-    public List<WineryUserReview> getUserReviewsByLanguage(Long wineryId, String language){
-        return wineryUserReviewRepository.getAllByWineryIdEqualsAndLanguageEquals(wineryId, language);
+    public List<WineryUserReview> getUserReviewsById(Long wineryId){
+        return wineryUserReviewRepository.getAllByWineryIdEquals(wineryId);
     }
 }

@@ -20,6 +20,5 @@ public class WineryUserReview {
     String name;
     int rating;
     String text;
-    String language;
 
 }
