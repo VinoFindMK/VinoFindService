@@ -1,0 +1,13 @@
+com\ukim\finki\domashna2\repository\WineryRepository.class
+com\ukim\finki\domashna2\service\Utility.class
+com\ukim\finki\domashna2\service\LocationFilter.class
+com\ukim\finki\domashna2\model\WineryInfo.class
+com\ukim\finki\domashna2\model\WineryReview.class
+com\ukim\finki\domashna2\controller\DetailsController.class
+com\ukim\finki\domashna2\Domashna2Application.class
+com\ukim\finki\domashna2\controller\WineriesController.class
+com\ukim\finki\domashna2\service\WineryDataExporterService.class
+com\ukim\finki\domashna2\controller\HomeController.class
+com\ukim\finki\domashna2\controller\AboutController.class
+com\ukim\finki\domashna2\controller\MapController.class
+com\ukim\finki\domashna2\service\WineryService.class
