@@ -14,11 +14,16 @@
     margin-bottom: 3%;
 }
 
+.head a:hover{
+    color: yellow;
+    font-size: 40px;
+}
+
 
 #map_pos{
-    position: fixed;
-    margin-left:36%;
-    top: 100px;
+    float: right;
+    margin-right: 2%;
+    min-width: auto;
     min-height: auto;
 
 }
@@ -51,8 +56,8 @@
 #reviews{
     border: #000000 solid 3px;
     margin-left: 2%;
-    margin-top: 3%;
     margin-right: 2%;
+    margin-top: 2%;
     float:left;
     clear: left;
     background-color: #27ae60;

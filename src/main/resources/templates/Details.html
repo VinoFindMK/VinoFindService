@@ -16,10 +16,14 @@
     <a th:href="@{/Map}" th:text="#{link_map}">Map</a>
     <a th:href="@{/About}" th:text="#{link_about}">About Us</a>
 </div>
-
 <div class="Language">
     <a href="?lang=mk" th:text="MK"></a>
     <a href="?lang=en" th:text="EN"></a>
+</div>
+<div id="map_pos">
+    <iframe height="700px", width="1200px" ,id="map"
+            th:src="@{'https://maps.google.com/maps?q=' + ${winery.location} + '&amp;width=100%25&amp;height=600&amp;hl=en&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'}">
+    </iframe>
 </div>
 
 <div id="info">
@@ -48,11 +52,6 @@
 </div>
 
 
-<div id="map_pos">
-    <iframe width="1050" height="700" id="map"
-            th:src="@{'https://maps.google.com/maps?q=' + ${winery.location} + '&amp;width=100%25&amp;height=600&amp;hl=en&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'}">
-    </iframe>
-</div>
 
 
 </body>

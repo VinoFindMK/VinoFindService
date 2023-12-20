@@ -17,6 +17,7 @@ body {
     height: 60px;
     font-size: 25px;
     font-family: 'Yellowtail', cursive;
+    border-bottom: #000000 solid 3px;
 }
 .Body {
     display: grid;
