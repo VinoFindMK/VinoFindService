@@ -22,6 +22,12 @@
     <a href="?lang=en" th:text="EN"></a>
 </div>
 
+<div id="map_pos">
+    <iframe width="1050" height="700" id="map"
+            th:src="@{'https://maps.google.com/maps?q=' + ${winery.location} + '&amp;width=100%25&amp;height=600&amp;hl=en&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'}">
+    </iframe>
+</div>
+
 <div id="info">
     <h2><span th:text="#{details_name}"></span>:<br> <span th:text="${winery.name}"></span></h2>
     <h2><span th:text="#{details_address}"></span>:<br> <span th:text="${winery.address}"></span></h2>
@@ -45,6 +51,16 @@
     </ul>
     <h2 th:unless="${winery.reviews != null and not #lists.isEmpty(winery.reviews)}"
         th:text="#{details_no_reviews}"></h2>
+    <h2 th:text="#{details_user_reviews}">:</h2>
+    <ul th:if="${!user_reviews.isEmpty()}">
+        <li th:each="review : ${user_reviews}">
+            <h2><span th:text="#{details_author}"></span>: <span th:text="${review.getName()}"></span></h2>
+            <h2><span th:text="#{details_rating}"></span>: <span th:text="${review.getRating()}"></span></h2>
+            <h2><span th:text="${review.getText()}"></span></h2>
+        </li>
+    </ul>
+    <h2 th:if="${user_reviews.isEmpty()}"
+        th:text="#{details_no_reviews}"></h2>
 </div>
 
 <div class="Comment" id="button">
@@ -53,24 +69,8 @@
     </a>
 </div>
 
-<div id="user_reviews">
-    <h2 th:text="#{details_reviews}">:</h2>
-    <ul th:if="${!user_reviews.isEmpty()}">
-        <li th:each="review : ${user_reviews}">
-            <h2><span th:text="#{details_author}"></span>: <span th:text="${review.getName()}"></span></h2>
-            <h2><span th:text="#{details_rating}"></span>: <span th:text="${review.getRating()}"></span></h2>
-            <h2><span th:text="${review.getText()}"></span></h2>
-        </li>
-    </ul>
-    <h2 th:unless="${user_reviews.isEmpty()}"
-        th:text="#{details_no_reviews}"></h2>
-</div>
 
-<div id="map_pos">
-    <iframe width="1050" height="700" id="map"
-            th:src="@{'https://maps.google.com/maps?q=' + ${winery.location} + '&amp;width=100%25&amp;height=600&amp;hl=en&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'}">
-    </iframe>
-</div>
+
 
 
 </body>

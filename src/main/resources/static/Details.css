@@ -14,11 +14,16 @@
     margin-bottom: 3%;
 }
 
+.head a:hover{
+    color: yellow;
+    font-size: 25px;
+}
+
 
 #map_pos{
-    position: fixed;
-    margin-left:36%;
-    top: 100px;
+    float: right;
+    margin-right: 2%;
+    min-width: auto;
     min-height: auto;
 
 }
@@ -51,8 +56,8 @@
 #reviews{
     border: #000000 solid 3px;
     margin-left: 2%;
-    margin-top: 3%;
     margin-right: 2%;
+    margin-top: 2%;
     float:left;
     clear: left;
     background-color: #27ae60;
@@ -75,4 +80,20 @@
 
 #reviews li h2:nth-child(3){
     display: block;
+}
+
+#button button{
+    float: left;
+    clear: left;
+    margin-left: 2%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+    font-weight: bold;
+    width: 200px;
+    height: 100px;
+    font-size: 30px;
+    background-color: #4CAF50;
+
+    min-width: auto;
+    margin-right: 2%;
 }
