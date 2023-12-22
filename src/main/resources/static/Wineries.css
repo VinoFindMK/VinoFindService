@@ -30,3 +30,65 @@ table {
     font-family: 'Yellowtail', cursive;
     border-bottom: #000000 solid 3px;
 }
+
+.size{
+    float: left;
+    margin-left: 10%;
+}
+.back {
+    color: greenyellow;
+    font-weight: bold;
+    margin-right: 40px;
+}
+
+.next {
+    color: yellow;
+    font-weight: bold;
+}
+
+.buttons {
+    font-size: 40px;
+    display: flex;
+    margin-right: 13%;
+    float: right;
+    margin-top: 10px;
+}
+
+.buttons a {
+    color: yellow;
+    border-radius: 20px;
+}
+
+.tablediv {
+    margin-top: 2%;
+}
+
+.searchBar {
+    float: right;
+    margin-right: 13%;
+    margin-bottom: 1%;
+}
+
+#search {
+    width: 200px;
+    border-radius: 20px;
+    height: 28px;
+    justify-content: center;
+
+}
+
+#button {
+    color: black;
+    background: none;
+    border: none;
+    padding-right: 30px;
+    font-size: 23px;
+}
+table {
+    margin-left: 10%;
+    border-radius: 20px;
+}
+
+.selected-arrow {
+    color: yellow;
+}

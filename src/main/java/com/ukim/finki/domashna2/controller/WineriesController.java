@@ -27,11 +27,10 @@ public class WineriesController {
     @GetMapping("/Wineries")
     public String listWineries(@RequestParam(required = false) String query,
                                @RequestParam(required = false) String sort,
-                               @PageableDefault(size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable,
+                               @RequestParam(name = "size", defaultValue = "10") int size,
+                               @PageableDefault(size = 10, sort = "id") Pageable pageable,
                                Model model) {
         Page<WineryInfo> wineriesPage;
-
-        System.out.println(sort);
         if (query != null && !query.isEmpty()) {
             wineriesPage = wineryService.searchWineries(query, pageable);
         } else {
@@ -40,6 +39,7 @@ public class WineriesController {
 
         model.addAttribute("wineriesPage", wineriesPage);
         model.addAttribute("query", query);
+        model.addAttribute("size", size);
         model.addAttribute("sort", sort);
 
         return "Wineries";

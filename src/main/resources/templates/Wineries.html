@@ -9,63 +9,7 @@
     <link rel="stylesheet" href="/Wineries.css">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/945db318c0.js" crossorigin="anonymous"></script>
-    <style>
 
-
-        .back {
-            color: greenyellow;
-            font-weight: bold;
-            margin-right: 40px;
-        }
-
-        .next {
-            color: yellow;
-            font-weight: bold;
-        }
-
-        .buttons {
-            font-size: 40px;
-            display: flex;
-            margin-right: 13%;
-            float: right;
-            margin-top: 10px;
-        }
-
-        .buttons a {
-            color: yellow;
-            border-radius: 20px;
-        }
-
-        .tablediv {
-            margin-top: 2%;
-        }
-
-        .searchBar {
-            float: right;
-            margin-right: 13%;
-            margin-bottom: 1%;
-        }
-
-        #search {
-            width: 200px;
-            border-radius: 20px;
-            height: 28px;
-            justify-content: center;
-
-        }
-
-        #button {
-            color: black;
-            background: none;
-            border: none;
-            padding-right: 30px;
-            font-size: 23px;
-        }
-        table {
-            margin-left: 10%;
-            border-radius: 20px;
-        }
-    </style>
 </head>
 <div class="head">
     <a href="Home" th:text="#{link_home}"></a>
@@ -84,16 +28,31 @@
         <input type="text" id="search" name="query" th:value="${query}" th:placeholder="#{wineries_search_by_name}">
         <button type="submit" id="button"><i class="fa-solid fa-magnifying-glass"></i></button>
     </form>
+
+
+    <form class="size" action="#" th:action="@{/Wineries}" method="get">
+        <label for="size">Amount:</label>
+        <select id="size" name="size" onchange="this.form.submit()">
+            <option value="10" th:text="10" th:selected="${size == 10}"></option>
+            <option value="25" th:text="25" th:selected="${size == 25}"></option>
+            <option value="50" th:text="50" th:selected="${size == 50}"></option>
+            <option value="100" th:text="100" th:selected="${size == 100}"></option>
+        </select>
+    </form>
+
+
+
+
     <table>
         <thead>
         <tr>
             <th>
                 <span>#</span>
                 <a th:href="@{/Wineries(page=${wineriesPage.number}, size=${wineriesPage.size}, sort='id,asc')}">
-                    <span > ▲ </span>
+                    <span th:class="${sort == 'id,asc'} ? 'selected-arrow' : ''"> ▲ </span>
                 </a>
                 <a th:href="@{/Wineries(page=${wineriesPage.number}, size=${wineriesPage.size}, sort='id,desc')}">
-                    <span > ▼ </span>
+                    <span th:class="${sort == 'id,desc'} ? 'selected-arrow' : ''"> ▼ </span>
                 </a>
             </th>
 
@@ -103,19 +62,20 @@
             <th>
                 <span th:text="#{wineries_rating}"></span>
                 <a th:href="@{/Wineries(page=${wineriesPage.number}, size=${wineriesPage.size}, sort='rating,asc')}">
-                    <span > ▲ </span>
-              </a>
+                    <span th:class="${sort == 'rating,asc'} ? 'selected-arrow' : ''"> ▲ </span>
+                </a>
                 <a th:href="@{/Wineries(page=${wineriesPage.number}, size=${wineriesPage.size}, sort='rating,desc')}">
-                    <span > ▼ </span>
+                    <span th:class="${sort == 'rating,desc'} ? 'selected-arrow' : ''"> ▼ </span>
                 </a>
             </th>
+
             <th>
                 <span th:text="#{wineries_number_ratings}"></span>
                 <a th:href="@{/Wineries(page=${wineriesPage.number}, size=${wineriesPage.size}, sort='numRatings,asc')}">
-                    <span > ▲ </span>
+                    <span th:class="${sort == 'numRatings,asc'} ? 'selected-arrow' : ''"> ▲ </span>
                 </a>
                 <a th:href="@{/Wineries(page=${wineriesPage.number}, size=${wineriesPage.size}, sort='numRatings,desc')}">
-                    <span > ▼ </span>
+                    <span th:class="${sort == 'numRatings,desc'} ? 'selected-arrow' : ''"> ▼ </span>
                 </a>
             </th>
 
