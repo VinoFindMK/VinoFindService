@@ -75,29 +75,27 @@
 <form class="Extra" action="/reviews/add" method="post">
     <div class="Main-Comment" id="poputForm">
         <div id="Coment-elements">
-            <input name="wineryid" th:value="${wineryId}" hidden>
-            <div class="Comment">
-                 <label for="Name" th:text="#{comment.name}"></label> <br>
-                <input type="text" name="name" id="Name" placeholder="Dace">
+            <h3>Nname:</h3>
+            <input type="text" id="Name" placeholder="Name...">
+            <h3>Surname:</h3>
+            <input type="text" id="Surname" placeholder="Surname...">
+            <h3>Comment:</h3>
+            <textarea id="Comment-text" placeholder="Comment here"></textarea>
+            <div id="rating-pos">
+                <h3>Rating</h3>
+                <li id="rating">
+                    <ul>1<input type="radio" value="1"></ul>
+                    <ul>2<input type="radio" value="2"></ul>
+                    <ul>3<input type="radio" value="3"></ul>
+                    <ul>4<input type="radio" value="4"></ul>
+                    <ul>5<input type="radio" value="5"></ul>
+                </li>
             </div>
-            <div class="Comment">
-                <label for="Surname" th:text="#{comment.surname}"></label> <br>
-                <input type="text" name="surname" id="Surname"  placeholder="Velinov">
+            <div id="popupButtons">
+                <button type="button" id="Submit" th:text="#{review.submitReview}" onclick="closePopUp()" ></button>
+                <button type="reset" id="Reset" th:text="Reset" ></button>
             </div>
 
-            <div class="Comment">
-                <label  th:text="#{comment.comment_text}"></label> <br>
-                <input type="text" id="comment1" name="comment" placeholder="Kazi be">
-            </div>
-
-            <div class="Comment">
-                <input type="number" name="rating" th:id="rating" th:text="#{details_rating}" />
-                <label th:for="${rating}" th:text="#{details_rating}"></label>
-            </div>
-            <div class="Comment">
-                <input type="submit" name="Submit" id="Submit" onclick="closePopUp()">
-                <input type="reset" name="Reset" id="Reset">
-            </div>
         </div>
     </div>
 </form>

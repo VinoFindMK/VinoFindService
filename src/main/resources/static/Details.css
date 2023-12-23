@@ -119,15 +119,15 @@
 
 .Main-Comment{
     background-color: #4CAF50;
-    width: 300px;
-    height: 300px;
+    width: 500px;
+    height: 600px;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%) scale(0.1);
     visibility: hidden;
-    transition: transform 0.4s;
-    border-radius: 30%;
+    transition: transform 0.4s , visibility 0.4s;
+    border-radius: 20%;
     border: black solid 3px;
 }
 
@@ -136,11 +136,55 @@
     transform: translate(-50%,-50%) scale(1);
 }
 
+
 .Main-Comment #Coment-elements{
     margin-left: 3%;
     margin-top: 20px;
     color: #000000;
     text-align: center;
-    justify-items: center;
+    font-weight: bold;
+}
 
+.Main-Comment #Coment-elements #Name , #Surname{
+    text-align: center;
+}
+
+.Main-Comment #Coment-elements #Comment-text{
+    width: 400px;
+    height: 200px;
+
+}
+
+.Main-Comment #Coment-elements #rating-pos li ul{
+    display: inline;
+    justify-content: center;
+    marker: none;
+}
+
+.Main-Comment #Coment-elements #rating-pos li ul input{
+    cursor: pointer;
+}
+
+
+.Main-Comment #Coment-elements #popupButtons{
+    margin-top: 20px;;
+}
+.Main-Comment #Coment-elements #popupButtons button:nth-child(1){
+    margin-right: 30px;
+    width: 100px;
+    height: 50px;
+    border: black solid 1px;
+    border-radius: 30%;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.Main-Comment #Coment-elements #popupButtons button:nth-child(2){
+    margin-left: 30px;
+    width: 100px;
+    height: 50px;
+    border: black solid 1px;
+    border-radius: 30%;
+    font-weight: bold;
+    cursor: pointer;
 }
