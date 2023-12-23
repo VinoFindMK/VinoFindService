@@ -15,7 +15,7 @@
     <a th:href="@{/Home}" th:text="#{link_home}">Home</a>
     <a th:href="@{/Wineries}" th:text="#{link_wineries}">Wineries</a>
     <a th:href="@{/Map}" th:text="#{link_map}">Map</a>
-    <a th:href="@{/AboutUs}" th:text="#{link_about}">About Us</a>
+    <a th:href="@{/About}" th:text="#{link_about}">About Us</a>
 </div>
 
 <div class="Language">
@@ -72,33 +72,33 @@
 
 
 
-<form class="Extra" action="/reviews/add" method="post">
+<form class="Extra" th:action="@{/Details/${winery.id}}" method="post">
     <div class="Main-Comment" id="poputForm">
         <div id="Coment-elements">
-            <h3>Nname:</h3>
-            <input type="text" id="Name" placeholder="Name...">
-            <h3>Surname:</h3>
-            <input type="text" id="Surname" placeholder="Surname...">
+            <input name="wineryId" th:value="${winery.id}" hidden>
+            <h3>Display Name:</h3>
+            <input type="text" id="Name" name="name" placeholder="Name...">
             <h3>Comment:</h3>
-            <textarea id="Comment-text" placeholder="Comment here"></textarea>
+            <textarea id="Comment-text" name="comment" placeholder="Comment here"></textarea>
             <div id="rating-pos">
                 <h3>Rating</h3>
                 <li id="rating">
-                    <ul>1<input type="radio" value="1"></ul>
-                    <ul>2<input type="radio" value="2"></ul>
-                    <ul>3<input type="radio" value="3"></ul>
-                    <ul>4<input type="radio" value="4"></ul>
-                    <ul>5<input type="radio" value="5"></ul>
+                    <ul>1<input type="radio" name="rating" value="1"></ul>
+                    <ul>2<input type="radio" name="rating" value="2"></ul>
+                    <ul>3<input type="radio" name="rating" value="3"></ul>
+                    <ul>4<input type="radio" name="rating" value="4"></ul>
+                    <ul>5<input type="radio" name="rating" value="5"></ul>
                 </li>
             </div>
             <div id="popupButtons">
-                <button type="button" id="Submit" th:text="#{review.submitReview}" onclick="closePopUp()" ></button>
-                <button type="reset" id="Reset" th:text="Reset" ></button>
+                <input type="submit" name="Submit" id="Submit" onclick="closePopUp()">
+                <input type="reset" name="Reset" id="Reset">
             </div>
 
         </div>
     </div>
 </form>
+
 
 
 <script>

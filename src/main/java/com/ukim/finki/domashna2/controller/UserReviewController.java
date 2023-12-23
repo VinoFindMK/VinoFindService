@@ -32,7 +32,7 @@ public class UserReviewController {
     }
 
     @PostMapping("/add")
-    public String addReview(@RequestParam("wineryid") Long wineryId,
+    public String addReview(@RequestParam("wineryId") Long wineryId,
                             @RequestParam("name") String name,
                             @RequestParam("surname") String surname,
                             @RequestParam("rating") int rating,

@@ -6,9 +6,7 @@ import com.ukim.finki.domashna2.service.WineryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,6 +17,10 @@ public class DetailsController {
     @Autowired
     private WineryService wineryService;
 
+    public DetailsController(WineryService wineryService) {
+        this.wineryService = wineryService;
+    }
+
     @GetMapping("Details/{id}")
     public String details(@PathVariable Long id, Model model) {
         WineryInfo winery = wineryService.getWineryById(id);
@@ -27,6 +29,24 @@ public class DetailsController {
         model.addAttribute("user_reviews", wineryUserReviews);
         return "Details";
     }
+
+    @PostMapping("Details/{id}")
+    public String addReview(@RequestParam("wineryId") Long wineryId,
+                            @RequestParam("name") String name,
+                            @RequestParam("rating") int rating,
+                            @RequestParam("comment") String comment) {
+
+        WineryUserReview wineryUserReview = new WineryUserReview();
+        wineryUserReview.setWineryId(wineryId);
+        wineryUserReview.setName(name);
+        wineryUserReview.setRating(rating);
+        wineryUserReview.setText(comment);
+
+        wineryService.saveUserReviewToDB(wineryUserReview);
+
+        return "redirect:/Details/"+wineryId;
+    }
+
 }
 
 
