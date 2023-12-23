@@ -25,29 +25,30 @@
 <form class="Extra" action="/reviews/add" method="post">
     <div class="Main-Comment" id="forum">
 
-        <input name="wineryid" th:value="${wineryId}" hidden>
-        <div class="Comment">
-            <label for="Name" th:text="#{comment.name}"></label> <br>
-            <input type="text" name="name" id="Name" placeholder="Dace">
-        </div>
-        <div class="Comment">
-            <label for="Surname" th:text="#{comment.surname}"></label> <br>
-            <input type="text" name="surname" id="Surname"  placeholder="Velinov">
-        </div>
+            <input name="wineryid" th:value="${wineryId}" hidden>
+            <div class="Comment">
+                <label for="Name" th:text="#{comment.name}"></label> <br>
+                <input type="text" name="name" id="Name" placeholder="Dace">
+            </div>
+            <div class="Comment">
+                <label for="Surname" th:text="#{comment.surname}"></label> <br>
+                <input type="text" name="surname" id="Surname"  placeholder="Velinov">
+            </div>
 
-        <div class="Comment">
-            <label for="Comment" th:text="#{comment.comment_text}"></label> <br>
-            <input type="text" id="comment1" name="comment" placeholder="Kazi be">
-        </div>
+            <div class="Comment">
+                <label for="Comment" th:text="#{comment.comment_text}"></label> <br>
+                <input type="text" id="comment1" name="comment" placeholder="Kazi be">
+            </div>
 
-        <div class="Comment">
-            <input type="number" name="rating" th:id="rating" th:text="#{details_rating}" />
-            <label th:for="${rating}" th:text="#{details_rating}"></label>
-        </div>
-        <div class="Comment">
-            <input type="submit" name="Submit" id="Submit">
+            <div class="Comment">
+                <input type="number" name="rating" th:id="rating" th:text="#{details_rating}" />
+                <label th:for="${rating}" th:text="#{details_rating}"></label>
+            </div>
+            <div class="Comment">
+                <input type="submit" name="Submit" id="Submit">
 
-            <input type="reset" name="Reset" id="Reset">
+                <input type="reset" name="Reset" id="Reset">
+            </div>
         </div>
     </div>
 </form>

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Details</title>
     <link rel="icon" type="image/x-icon" href="img/logo.png">
     <link rel="stylesheet" href="/background.css">
@@ -23,7 +24,7 @@
 </div>
 
 <div id="map_pos">
-    <iframe width="1050" height="700" id="map"
+    <iframe id="map"
             th:src="@{'https://maps.google.com/maps?q=' + ${winery.location} + '&amp;width=100%25&amp;height=600&amp;hl=en&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'}">
     </iframe>
 </div>
@@ -46,6 +47,7 @@
         <li th:each="review : ${winery.reviews}">
             <h2><span th:text="#{details_author}"></span>: <span th:text="${review.authorName}"></span></h2>
             <h2><span th:text="#{details_rating}"></span>: <span th:text="${review.rating}"></span></h2>
+
             <h2><span th:text="${review.text}"></span></h2>
         </li>
     </ul>
@@ -56,6 +58,7 @@
         <li th:each="review : ${user_reviews}">
             <h2><span th:text="#{details_author}"></span>: <span th:text="${review.getName()}"></span></h2>
             <h2><span th:text="#{details_rating}"></span>: <span th:text="${review.getRating()}"></span></h2>
+
             <h2><span th:text="${review.getText()}"></span></h2>
         </li>
     </ul>
@@ -63,14 +66,54 @@
         th:text="#{details_no_reviews}"></h2>
 </div>
 
-<div class="Comment" id="button">
-    <a th:href="${'/reviews/add/' + winery.getId()}" target="_blank">
-        <button type="button"th:text="#{click_me}"></button>
-    </a>
+<div id="button">
+        <button type="button"th:text="#{click_me}" onclick="openPopUp()"></button>
 </div>
 
 
 
+<form class="Extra" action="/reviews/add" method="post">
+    <div class="Main-Comment" id="poputForm">
+        <div id="Coment-elements">
+            <input name="wineryid" th:value="${wineryId}" hidden>
+            <div class="Comment">
+                 <label for="Name" th:text="#{comment.name}"></label> <br>
+                <input type="text" name="name" id="Name" placeholder="Dace">
+            </div>
+            <div class="Comment">
+                <label for="Surname" th:text="#{comment.surname}"></label> <br>
+                <input type="text" name="surname" id="Surname"  placeholder="Velinov">
+            </div>
+
+            <div class="Comment">
+                <label  th:text="#{comment.comment_text}"></label> <br>
+                <input type="text" id="comment1" name="comment" placeholder="Kazi be">
+            </div>
+
+            <div class="Comment">
+                <input type="number" name="rating" th:id="rating" th:text="#{details_rating}" />
+                <label th:for="${rating}" th:text="#{details_rating}"></label>
+            </div>
+            <div class="Comment">
+                <input type="submit" name="Submit" id="Submit" onclick="closePopUp()">
+                <input type="reset" name="Reset" id="Reset">
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<script>
+    let popup = document.getElementById("poputForm");
+
+    function openPopUp(){
+        popup.classList.add("open-popup");
+    }
+    function closePopUp(){
+        popup.classList.remove("open-popup");
+    }
+
+</script>
 
 
 </body>

@@ -9,7 +9,8 @@
     opacity: 1;
     height: 60px;
     font-size: 25px;
-    font-family: 'Yellowtail', cursive;
+    font-family: 'Yellowtail';
+    font-weight: bold;
     border-bottom: #000000 solid 3px;
     margin-bottom: 3%;
 }
@@ -27,6 +28,14 @@
     min-height: auto;
 
 }
+
+#map{
+    width: 1250px;
+    height: 700px;
+    border: #000000 solid 3px;
+}
+
+
 #info{
     border: #000000 solid 3px;
     margin-left:2%;
@@ -35,6 +44,7 @@
     min-height: auto;
     width: 550px;
     opacity: 0.9;
+    border-radius: 30px;
 }
 #info > h2{
     margin-top: 10px;
@@ -64,6 +74,7 @@
     min-height: auto;
     min-width: auto;
     opacity: 0.9;
+    border-radius: 30px;
 }
 
 #reviews h2{
@@ -75,6 +86,7 @@
 }
 
 #reviews li h2:nth-child(-n+2){
+    font-weight: bold;
     display: inline ;
 }
 
@@ -93,7 +105,42 @@
     height: 100px;
     font-size: 30px;
     background-color: #4CAF50;
-
     min-width: auto;
     margin-right: 2%;
+    border-radius: 30px;
+}
+
+#button button:hover{
+    color: yellow;
+    border: yellow solid 2px;
+    cursor: pointer;
+
+}
+
+.Main-Comment{
+    background-color: #4CAF50;
+    width: 300px;
+    height: 300px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0.1);
+    visibility: hidden;
+    transition: transform 0.4s;
+    border-radius: 30%;
+    border: black solid 3px;
+}
+
+.open-popup{
+    visibility: visible;
+    transform: translate(-50%,-50%) scale(1);
+}
+
+.Main-Comment #Coment-elements{
+    margin-left: 3%;
+    margin-top: 20px;
+    color: #000000;
+    text-align: center;
+    justify-items: center;
+
 }
