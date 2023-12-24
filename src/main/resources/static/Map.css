@@ -1,0 +1,29 @@
+.head {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+    background-color: #333333;
+    padding: 0px;
+    height: 60px;
+    font-size: 25px;
+    font-family: 'Yellowtail', cursive;
+}
+.head a{
+    color: whitesmoke;
+}
+
+.head a:nth-child(3){
+    color: #4CAF50;
+}
+
+.head a:hover{
+    color: #4CAF50;
+}
+
+.Body iframe{
+    width: 1920px;
+    height: 860px;
+}
+

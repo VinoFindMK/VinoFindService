@@ -1,119 +1,69 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wineries</title>
-    <link rel="icon" type="image/x-icon" href="img/logo.png">
-    <link rel="stylesheet" href="/background.css">
-    <link rel="stylesheet" href="/Wineries.css">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <script src="https://kit.fontawesome.com/945db318c0.js" crossorigin="anonymous"></script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wineries</title>
+  <link rel="icon" type="image/x-icon" href="img/logo.png">
+  <link rel="stylesheet" href="/background.css">
+  <link rel="stylesheet" href="/Wineries.css">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/945db318c0.js" crossorigin="anonymous"></script>
 </head>
 <div class="head">
-    <a href="Home" th:text="#{link_home}"></a>
-    <a href="Wineries" th:text="#{link_wineries}"></a>
-    <a href="Map" th:text="#{link_map}"></a>
-    <a href="About" th:text="#{link_about}"></a>
+  <a href="Home" th:text="#{link_home}"></a>
+  <a href="Wineries" th:text="#{link_wineries}"></a>
+  <a href="Map" th:text="#{link_map}"></a>
+  <a href="About" th:text="#{link_about}"></a>
 </div>
-<div class="Language">
-    <a href="?lang=mk" th:text="MK"></a>
-    <a href="?lang=en" th:text="EN"></a>
+<div class="Language" >
+  <a href="?lang=mk" th:text="MK"></a>
+  <a href="?lang=en" th:text="EN"></a>
 </div>
 <body>
 <div class="tablediv">
 
-    <form class="searchBar" action="#" th:action="@{/Wineries}" method="get">
-        <input type="text" id="search" name="query" th:value="${query}" th:placeholder="#{wineries_search_by_name}">
-        <button type="submit" id="button"><i class="fa-solid fa-magnifying-glass"></i></button>
-    </form>
+  <form class="searchBar" action="#" th:action="@{/Wineries}" method="get">
+    <input type="text" id="search" name="query" th:value="${query}" th:placeholder="#{wineries_search_by_name}">
+    <button type="submit" id="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+  </form>
+  <table>
+    <thead>
+    <tr>
+      <th>#</th>
+      <th th:text="#{wineries_name}"></th>
+      <th th:text="#{wineries_address}"></th>
+      <th th:text="#{wineries_location}"></th>
+      <th th:text="#{wineries_rating}"></th>
+      <th th:text="#{wineries_number_ratings}"></th>
+      <th th:text="#{wineries_show_more}"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="winery : ${wineriesPage.content}">
+      <td th:text="${winery.id}"></td>
+      <td th:text="${winery.name}"></td>
+      <td th:text="${winery.address}"></td>
+      <td th:text="${winery.location}"></td>
+      <td th:text="${winery.rating}"></td>
+        <td th:text="${winery.numRatings}"></td>
+      <td> <a th:href="@{'/Details/' + ${winery.id}}">Show more</a> </td>
+    </tr>
 
-
-    <form class="size" action="#" th:action="@{/Wineries}" method="get">
-        <label for="size">Amount:</label>
-        <select id="size" name="size" onchange="this.form.submit()">
-            <option value="10" th:text="10" th:selected="${size == 10}"></option>
-            <option value="25" th:text="25" th:selected="${size == 25}"></option>
-            <option value="50" th:text="50" th:selected="${size == 50}"></option>
-            <option value="100" th:text="100" th:selected="${size == 100}"></option>
-        </select>
-    </form>
-
-
-
-
-    <table>
-        <thead>
-        <tr>
-            <th>
-                <span>#</span>
-                <a th:href="@{/Wineries(page=${wineriesPage.number}, size=${wineriesPage.size}, sort='id,asc')}">
-                    <span th:class="${sort == 'id,asc'} ? 'selected-arrow' : ''"> ▲ </span>
-                </a>
-                <a th:href="@{/Wineries(page=${wineriesPage.number}, size=${wineriesPage.size}, sort='id,desc')}">
-                    <span th:class="${sort == 'id,desc'} ? 'selected-arrow' : ''"> ▼ </span>
-                </a>
-            </th>
-
-            <th th:text="#{wineries_name}"></th>
-            <th th:text="#{wineries_address}"></th>
-            <th th:text="#{wineries_location}"></th>
-            <th>
-                <span th:text="#{wineries_rating}"></span>
-                <a th:href="@{/Wineries(page=${wineriesPage.number}, size=${wineriesPage.size}, sort='rating,asc')}">
-                    <span th:class="${sort == 'rating,asc'} ? 'selected-arrow' : ''"> ▲ </span>
-                </a>
-                <a th:href="@{/Wineries(page=${wineriesPage.number}, size=${wineriesPage.size}, sort='rating,desc')}">
-                    <span th:class="${sort == 'rating,desc'} ? 'selected-arrow' : ''"> ▼ </span>
-                </a>
-            </th>
-
-            <th>
-                <span th:text="#{wineries_number_ratings}"></span>
-                <a th:href="@{/Wineries(page=${wineriesPage.number}, size=${wineriesPage.size}, sort='numRatings,asc')}">
-                    <span th:class="${sort == 'numRatings,asc'} ? 'selected-arrow' : ''"> ▲ </span>
-                </a>
-                <a th:href="@{/Wineries(page=${wineriesPage.number}, size=${wineriesPage.size}, sort='numRatings,desc')}">
-                    <span th:class="${sort == 'numRatings,desc'} ? 'selected-arrow' : ''"> ▼ </span>
-                </a>
-            </th>
-
-            <th th:text="#{wineries_show_more}"></th>
-        </tr>
-        </thead>
-
-        <tbody>
-        <tr th:each="winery : ${wineriesPage.content}">
-            <td th:text="${winery.id}"></td>
-            <td th:text="${winery.name}"></td>
-            <td th:text="${winery.address}"></td>
-            <td th:text="${winery.location}"></td>
-            <td th:text="${winery.rating}"></td>
-            <td th:text="${winery.numRatings}"></td>
-            <td><a th:href="@{'/Details/' + ${winery.id}}">Show more</a></td>
-        </tr>
-
-        </tbody>
-    </table>
+    </tbody>
+  </table>
 
 </div>
 
 <div class="buttons">
-    <div class="back" th:if="${wineriesPage.hasPrevious()}">
-        <a th:href="@{/Wineries(page=${wineriesPage.number - 1}, size=${wineriesPage.size}, sort=${sort})}">
-            <i class="fa-solid fa-circle-arrow-left" ></i>
-        </a>
-    </div>
+  <div id="back" th:if="${wineriesPage.hasPrevious()}">
+    <a th:href="@{/Wineries(page=${wineriesPage.previousPageable().pageNumber})}"> <i class="fa-solid fa-circle-arrow-left"></i></a>
+  </div>
 
-    <div class="next" th:if="${wineriesPage.hasNext()}">
-        <a th:href="@{/Wineries(page=${wineriesPage.number + 1}, size=${wineriesPage.size}, sort=${sort})}">
-            <i class="fa-solid fa-circle-arrow-right" ></i>
-        </a>
-    </div>
+  <div id="next" th:if="${wineriesPage.hasNext()}">
+    <a th:href="@{/Wineries(page=${wineriesPage.nextPageable().pageNumber})}"> <i class="fa-solid fa-circle-arrow-right"></i></a>
+  </div>
 </div>
-
-
 </body>
 </html>
 
