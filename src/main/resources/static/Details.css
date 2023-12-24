@@ -186,12 +186,13 @@
     border: whitesmoke solid 2px;
     color: whitesmoke;
     height: 50px;
-    width: 100px;
+    width: 150px;
     border-radius: 15%;
     font-size: 25px;
     font-weight: bold;
     margin-right: 20px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 .Main-Comment #Coment-elements #Reset{
@@ -199,12 +200,13 @@
     border: whitesmoke solid 2px;
     color: whitesmoke;
     height: 50px;
-    width: 100px;
+    width: 150px;
     border-radius: 15%;
     font-size: 25px;
     font-weight: bold;
     margin-left: 20px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 .Main-Comment #Coment-elements #Submit:hover{

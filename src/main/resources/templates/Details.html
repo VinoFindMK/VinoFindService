@@ -77,12 +77,12 @@
         <input type="button"  id="close" value="x" onclick="closePopUp()">
         <div id="Coment-elements">
             <input name="wineryId" th:value="${winery.id}" hidden>
-            <h3>Display Name:</h3>
-            <input type="text" id="Name" name="name" placeholder="Name...">
-            <h3>Comment:</h3>
-            <textarea id="Comment-text" name="comment" placeholder="Comment here"></textarea>
+            <h3 th:text="#{details_display_name}"></h3>
+            <input type="text" id="Name" name="name" th:placeholder="#{details_placeholder_name}">
+            <h3 th:text="#{details_display_comment}"></h3>
+            <textarea id="Comment-text" name="comment" th:placeholder="#{details_placeholder_text_area}"></textarea>
             <div id="rating-pos">
-                <h3>Rating</h3>
+                <h3 th:text="#{details_display_rating}"></h3>
                 <li id="rating">
                     <ul>1<input type="radio" name="rating" value="1"></ul>
                     <ul>2<input type="radio" name="rating" value="2"></ul>
@@ -92,8 +92,8 @@
                 </li>
             </div>
             <div id="popupButtons">
-                <input type="submit" name="Submit" id="Submit" onclick="closePopUp()">
-                <input type="reset" name="Reset" id="Reset">
+                <input type="submit" th:value="#{details_display_submit_button}" id="Submit" onclick="closePopUp()">
+                <input type="reset" th:value="#{details_display_reset_button}" id="Reset">
             </div>
         </div>
     </div>
