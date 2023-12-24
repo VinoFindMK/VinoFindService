@@ -74,6 +74,7 @@
 
 <form class="Extra" th:action="@{/Details/${winery.id}}" method="post">
     <div class="Main-Comment" id="poputForm">
+        <input type="button"  id="close" value="x" onclick="closePopUp()">
         <div id="Coment-elements">
             <input name="wineryId" th:value="${winery.id}" hidden>
             <h3>Display Name:</h3>
@@ -94,7 +95,6 @@
                 <input type="submit" name="Submit" id="Submit" onclick="closePopUp()">
                 <input type="reset" name="Reset" id="Reset">
             </div>
-
         </div>
     </div>
 </form>

@@ -11,18 +11,38 @@ body {
     align-items: center;
     margin: 0;
     width: 100%;
-    background-color: rgba(0, 190, 0, 0.559);
+    background-color: #333333;
     padding: 0px;
-    opacity: 1;
     height: 60px;
     font-size: 25px;
     font-family: 'Yellowtail', cursive;
 }
+.head a{
+    color: whitesmoke;
+}
+
+.head a:nth-child(1){
+    color: #4CAF50;
+}
+
+.head a:hover{
+    color: #4CAF50;
+}
 .Body {
-    display: grid;
-    justify-items: center;
-    align-items: center;
+    width: 800px;
+    height: 869px;
+    background-color: #333333;
+    opacity: 0.9;
+    float: left;
     font-family: 'Yellowtail', cursive;
+    border-right: whitesmoke solid 2px;
+
+}
+
+.Body img{
+
+    margin-left: 20%;
+    margin-top: 5% ;
 }
 
 #paragraph{

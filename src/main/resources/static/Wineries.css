@@ -1,9 +1,29 @@
-table,
-tr,
-th,
-td,
-caption {
-    border: 2px solid gray;
+.head {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+    background-color: #333333;
+    padding: 0px;
+    height: 60px;
+    font-size: 25px;
+    font-family: 'Yellowtail', cursive;
+}
+.head a{
+    color: whitesmoke;
+}
+
+.head a:nth-child(2){
+    color: #4CAF50;
+}
+
+.head a:hover{
+    color: #4CAF50;
+}
+
+table, tr, th, td, caption {
+    border: 2px solid rgb(128, 128, 128);
     border-collapse: collapse;
     padding: 0.5rem;
     background-color: rgba(255, 255, 255, 0.4);
@@ -16,16 +36,61 @@ table {
 .buttons{
     float: right;
 }
-.head {
+
+.back{
+    color: greenyellow;
+    font-weight: bold;
+    margin-right:40px;
+}
+.next{
+    color:yellow;
+    font-weight: bold;
+}
+.buttons{
+    font-size: 40px;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 0;
-    width: 100%;
-    background-color: rgba(0, 190, 0, 0.559);
-    padding: 0px;
-    opacity: 1;
-    height: 60px;
-    font-size: 25px;
-    font-family: 'Yellowtail', cursive;
+    margin-right: 13%;
+    float:right;
+    margin-top:10px;
+}
+
+.buttons{
+    background-color: white;
+    opacity: 0.9;
+    border-radius: 10%;
+}
+
+.buttons a{
+    color: #333333;
+    border-radius: 20px;
+}
+
+.buttons a:hover{
+    color: #4CAF50;
+}
+.tablediv{
+    margin-top:2%;
+}
+.searchBar{
+    float:right;
+    margin-right:13%;
+    margin-bottom:1%;
+}
+#search{
+    width:200px;
+    border-radius: 20px;
+    height:28px;
+    justify-content: center;
+
+}
+#button{
+    color:black;
+    background:none;
+    border:none;
+    padding-right:30px;
+    font-size: 23px;
+}
+table{
+    margin-left:10%;
+    border-radius: 20px;
 }
