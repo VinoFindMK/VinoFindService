@@ -30,7 +30,7 @@ body {
 }
 .Body {
     width: 800px;
-    height: 869px;
+    height: 100vh;
     background-color: #333333;
     opacity: 0.9;
     float: left;

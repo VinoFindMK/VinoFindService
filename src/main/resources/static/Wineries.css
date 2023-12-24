@@ -33,32 +33,32 @@ table {
     width: 80%;
 }
 
-.buttons{
-    float: right;
-}
 
-.back{
+#back{
     color: greenyellow;
     font-weight: bold;
     margin-right:40px;
 }
-.next{
+#next{
     color:yellow;
     font-weight: bold;
 }
 .buttons{
+    float: right;
     font-size: 40px;
     display: flex;
     margin-right: 13%;
     float:right;
     margin-top:10px;
+    padding: 5px;
+    width: 120px;
+    margin-top: 0;
+    background-color: white;
+    opacity: 0.8;
+    border-radius: 10%;
+    border: black solid 2px;
 }
 
-.buttons{
-    background-color: white;
-    opacity: 0.9;
-    border-radius: 10%;
-}
 
 .buttons a{
     color: #333333;

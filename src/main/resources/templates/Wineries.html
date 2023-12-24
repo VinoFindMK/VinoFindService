@@ -56,11 +56,11 @@
 </div>
 
 <div class="buttons">
-  <div class="back" th:if="${wineriesPage.hasPrevious()}">
+  <div id="back" th:if="${wineriesPage.hasPrevious()}">
     <a th:href="@{/Wineries(page=${wineriesPage.previousPageable().pageNumber})}"> <i class="fa-solid fa-circle-arrow-left"></i></a>
   </div>
 
-  <div class="next" th:if="${wineriesPage.hasNext()}">
+  <div id="next" th:if="${wineriesPage.hasNext()}">
     <a th:href="@{/Wineries(page=${wineriesPage.nextPageable().pageNumber})}"> <i class="fa-solid fa-circle-arrow-right"></i></a>
   </div>
 </div>
