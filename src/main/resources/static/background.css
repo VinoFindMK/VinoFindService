@@ -42,7 +42,7 @@ a:active {
 }
 
 a:hover{
-    color: yellow;
+    color: #4CAF50;
 
 }
 .Language{
@@ -62,4 +62,8 @@ a:hover{
 }
 .Language a :active{
     color: white;
+}
+.size{
+    float: left;
+    margin-left: 10%;
 }

@@ -94,3 +94,6 @@ table{
     margin-left:10%;
     border-radius: 20px;
 }
+.selected-arrow {
+    color: #4CAF50;
+}
