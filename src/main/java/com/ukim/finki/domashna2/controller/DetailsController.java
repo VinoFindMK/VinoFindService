@@ -44,6 +44,9 @@ public class DetailsController {
 
         wineryService.saveUserReviewToDB(wineryUserReview);
 
+        wineryService.updateNumRatings(wineryId);
+
+
         return "redirect:/Details/"+wineryId;
     }
 
