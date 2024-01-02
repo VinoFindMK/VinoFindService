@@ -1,81 +1,38 @@
 package com.ukim.finki.domashna2.service;
 
+import com.google.maps.model.PlaceDetails;
+import com.google.maps.model.PlacesSearchResult;
 import com.ukim.finki.domashna2.model.WineryInfo;
+import com.ukim.finki.domashna2.model.WineryReview;
 import com.ukim.finki.domashna2.model.WineryUserReview;
-import com.ukim.finki.domashna2.repository.WineryRepository;
-import com.ukim.finki.domashna2.repository.WineryUserReviewRepository;
-import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
+public interface WineryService {
+    Page<WineryInfo> getAllWineries(Pageable pageable);
 
-@Service
-public class WineryService {
+    Page<WineryInfo> searchWineries(String query, Pageable pageable);
 
-    @Autowired
-    private WineryRepository wineryRepository;
+    void saveWineryToDB(WineryInfo winery);
 
-    @Autowired
-    private WineryUserReviewRepository wineryUserReviewRepository;
+    WineryInfo getWineryById(Long id);
 
-    public Page<WineryInfo> getAllWineries(Pageable pageable) {
-        return wineryRepository.findAll(pageable);
-    }
+    void saveUserReviewToDB(WineryUserReview wineryUserReview);
 
+    List<WineryUserReview> getUserReviewsById(Long wineryId);
 
-    public Page<WineryInfo> searchWineries(String query, Pageable pageable) {
-        return wineryRepository.findByNameContainingIgnoreCase(query, pageable);
-    }
+    void updateNumRatings(Long wineryId);
 
+    boolean shouldIncludeWinery(PlacesSearchResult result);
 
-    public void saveWineryToDB(WineryInfo winery) {
+    String getWebsite(PlaceDetails detailedResult);
 
-        Optional<WineryInfo> existingWinery = wineryRepository.findByName(winery.getName());
-        if (!existingWinery.isPresent()) {
-            wineryRepository.save(winery);
-           // System.out.println(winery);
-        }
-    }
+    String getPhoneNumber(PlaceDetails detailedResult);
 
-    public WineryInfo getWineryById(Long id) {
-        return wineryRepository.findById(id).orElse(null);
-    }
+    String getOpeningTime(PlaceDetails detailedResult);
 
-    public void saveUserReviewToDB(WineryUserReview wineryUserReview){
-        wineryUserReviewRepository.save(wineryUserReview);
-    }
-
-    public List<WineryUserReview> getUserReviewsById(Long wineryId){
-        return wineryUserReviewRepository.getAllByWineryIdEquals(wineryId);
-    }
-
-    @Transactional
-    public void updateNumRatings(Long wineryId) {
-        WineryInfo wineryInfo = wineryRepository.findById(wineryId).orElse(null);
-        if (wineryInfo != null) {
-            int totalGMRatings = wineryInfo.getReviews().size();
-            int totalUserRatings = wineryUserReviewRepository.getAllByWineryIdEquals(wineryId).size();
-            System.out.println(totalGMRatings);
-            System.out.println(totalUserRatings);
-            List<Float> UserRatings= wineryUserReviewRepository.getAllRatingsByWineryId(wineryId);
-            List<Float> GMRatings= wineryRepository.getRatingsByWineryId(wineryId);
-            List<Float> AllRatings = new ArrayList<>(UserRatings);
-            AllRatings.addAll(GMRatings);
-            double averageRating = AllRatings.stream()
-                    .mapToDouble(Float::doubleValue)
-                    .average()
-                    .orElse(0.0);
-            float roundedAverageRating = (float) Math.round(averageRating * 10) / 10;
-            wineryInfo.setNumRatings(totalGMRatings+totalUserRatings);
-            wineryInfo.setRating((float) roundedAverageRating);
-            wineryRepository.save(wineryInfo);
-        }
-    }
+    List<WineryReview> getReviews(PlaceDetails detailedResult);
 
 }
