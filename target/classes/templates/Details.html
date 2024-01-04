@@ -16,12 +16,14 @@
     <a th:href="@{/Wineries}" th:text="#{link_wineries}">Wineries</a>
     <a th:href="@{/Map}" th:text="#{link_map}">Map</a>
     <a th:href="@{/About}" th:text="#{link_about}">About Us</a>
+
+    <div class="Language">
+        <a href="?lang=mk" th:text="MK"></a>
+        <a href="?lang=en" th:text="EN"></a>
+    </div>
 </div>
 
-<div class="Language">
-    <a href="?lang=mk" th:text="MK"></a>
-    <a href="?lang=en" th:text="EN"></a>
-</div>
+
 
 <div id="map_pos">
     <iframe id="map"
@@ -36,8 +38,17 @@
     <h2><span th:text="#{details_number_ratings}"></span>:<br> <span th:text="${winery.numRatings}"></span></h2>
     <h2><span th:text="#{details_contact_number}"></span>:<br> <span th:text="${winery.phoneNum}"></span></h2>
     <h2><span th:text="#{details_opening_hours}"></span>:<br> <span th:utext="${winery.openingHours}"></span></h2>
-    <h2><span th:text="#{details_website}"></span>:<br> <a th:href="${winery.webSite}" target="_blank"
-                                                           th:text="${winery.webSite}"></a></h2>
+<!--    <h2><span th:text="#{details_website}"></span>:<br> <a th:href="${winery.webSite}" target="_blank"-->
+<!--                                                           th:text="${winery.webSite}"></a></h2>-->
+    <h2>
+        <span th:text="#{details_website}"></span>:
+        <br>
+        <span th:if="${winery.webSite != null}">
+        <a th:if="${winery.webSite != 'Unknown'}" th:href="${winery.webSite}" target="_blank" th:text="${winery.webSite}"></a>
+        <span th:if="${winery.webSite == 'Unknown'}" th:text="${winery.webSite}"></span>
+    </span>
+        <span th:unless="${winery.webSite != null}" th:text="N/A"></span>
+    </h2>
 </div>
 
 
