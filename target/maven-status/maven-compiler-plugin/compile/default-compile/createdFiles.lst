@@ -1,7 +1,6 @@
 com\ukim\finki\domashna2\repository\WineryRepository.class
 com\ukim\finki\domashna2\model\WineryUserReview.class
-com\ukim\finki\domashna2\service\Utility.class
-com\ukim\finki\domashna2\service\LocationFilter.class
+com\ukim\finki\domashna2\service\impl\WineryServiceImpl.class
 com\ukim\finki\domashna2\model\WineryInfo.class
 com\ukim\finki\domashna2\model\WineryReview.class
 com\ukim\finki\domashna2\controller\DetailsController.class
