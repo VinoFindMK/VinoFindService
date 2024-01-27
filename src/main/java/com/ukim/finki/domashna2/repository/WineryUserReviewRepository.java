@@ -10,9 +10,6 @@ import java.util.List;
 
 @Repository
 public interface WineryUserReviewRepository extends JpaRepository<WineryUserReview, Long> {
-    public List<WineryUserReview> getAllByWineryIdEquals(Long wineryId);
 
-    @Query("SELECT r.rating FROM WineryUserReview r WHERE r.wineryId = :wineryId")
-    List<Float> getAllRatingsByWineryId(@Param("wineryId") Long wineryId);
 }
 
